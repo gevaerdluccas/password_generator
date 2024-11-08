@@ -20,12 +20,12 @@ pipeline {
         }
         stage('Staging') {
             steps {
-                sh 'firebase deploy -P password-generator-staging --token "1//06HM_3YzP9y9ZCgYIARAAGAYSNwF-L9Ir7hkisunOlUAaudyero37GdZob5uthhgKc9ALa2IRv56fg0qgHa-zCIsL-a3tcqU2Ys4"'
+                sh 'firebase deploy -P password-generator-staging --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
         stage('Production') {
             steps {
-                sh 'firebase deploy -P password-generator-production --token "1//06HM_3YzP9y9ZCgYIARAAGAYSNwF-L9Ir7hkisunOlUAaudyero37GdZob5uthhgKc9ALa2IRv56fg0qgHa-zCIsL-a3tcqU2Ys4"'
+                sh 'firebase deploy -P password-generator-production --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
     }
